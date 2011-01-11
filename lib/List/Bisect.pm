@@ -1,12 +1,11 @@
 package List::Bisect;
 BEGIN {
-  $List::Bisect::VERSION = '0.001';
+  $List::Bisect::VERSION = '0.002';
 }
 use strict;
 use warnings;
 use Exporter qw{import};
-our @EXPORT = qw{bisect};
-our @EXPORT_OK = qw{trisect};
+our @EXPORT = qw{bisect trisect};
 
 # ABSTRACT: split a list in to two parts by way of a grep like block
 
@@ -57,10 +56,10 @@ B<!!NOTE!!> Currently the last arrayref is a catch all for anything that does no
 end up here. This was done as I want to keep the expectation that all items from the input list
 will be found some where in the output.
 
-  my ($x,$y,$z) = List::Bisect::trisect { $_ < 5 ? -1
-                                        : $_ > 5 ? 1
-                                        : 'foo'
-                                        } 1..10;
+  my ($x,$y,$z) = trisect { $_ < 5 ? -1
+                          : $_ > 5 ? 1
+                          : 'foo'
+                          } 1..10;
   # $x == [1..4]
   # $y == []
   # $z == [5..10]

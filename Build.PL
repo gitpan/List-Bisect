@@ -18,7 +18,7 @@ my %module_build_args = (
     'Ben Hengst <notbenh@cpan.org>'
   ],
   'dist_name' => 'List-Bisect',
-  'dist_version' => '0.001',
+  'dist_version' => '0.002',
   'license' => 'perl',
   'module_name' => 'List::Bisect',
   'recommends' => {},
