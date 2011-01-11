@@ -1,0 +1,13 @@
+
+
+This archive contains the distribution List-Bisect,
+version 0.001_1:
+
+  split a list in to two parts by way of a grep like block
+
+This software is copyright (c) 2011 by Ben Hengst.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+

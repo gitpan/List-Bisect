@@ -1,0 +1,8 @@
+Build.PL
+LICENSE
+MANIFEST
+META.yml
+README
+dist.ini
+lib/List/Bisect.pm
+t/01-works.t
