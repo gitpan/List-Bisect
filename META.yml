@@ -15,5 +15,7 @@ meta-spec:
   version: 1.4
 name: List-Bisect
 requires:
+  Exporter: 0
+  Scalar::Util: 0
   Test::More: 0
-version: 0.001_2
+version: 0.001

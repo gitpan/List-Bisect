@@ -18,12 +18,14 @@ my %module_build_args = (
     'Ben Hengst <notbenh@cpan.org>'
   ],
   'dist_name' => 'List-Bisect',
-  'dist_version' => '0.001_2',
+  'dist_version' => '0.001',
   'license' => 'perl',
   'module_name' => 'List::Bisect',
   'recommends' => {},
   'recursive_test_files' => 1,
   'requires' => {
+    'Exporter' => '0',
+    'Scalar::Util' => '0',
     'Test::More' => '0'
   },
   'script_files' => []

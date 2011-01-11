@@ -23,9 +23,11 @@ my %WriteMakefileArgs = (
   'LICENSE' => 'perl',
   'NAME' => 'List::Bisect',
   'PREREQ_PM' => {
+    'Exporter' => '0',
+    'Scalar::Util' => '0',
     'Test::More' => '0'
   },
-  'VERSION' => '0.001_2',
+  'VERSION' => '0.001',
   'test' => {
     'TESTS' => 't/*.t'
   }
