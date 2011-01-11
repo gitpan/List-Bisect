@@ -10,6 +10,7 @@ my %module_build_args = (
     'Module::Build' => '0.3601'
   },
   'configure_requires' => {
+    'ExtUtils::MakeMaker' => '6.31',
     'Module::Build' => '0.3601'
   },
   'dist_abstract' => 'split a list in to two parts by way of a grep like block',
@@ -17,7 +18,7 @@ my %module_build_args = (
     'Ben Hengst <notbenh@cpan.org>'
   ],
   'dist_name' => 'List-Bisect',
-  'dist_version' => '0.001_1',
+  'dist_version' => '0.001_2',
   'license' => 'perl',
   'module_name' => 'List::Bisect',
   'recommends' => {},

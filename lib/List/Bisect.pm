@@ -1,11 +1,12 @@
 package List::Bisect;
 BEGIN {
-  $List::Bisect::VERSION = '0.001_1';
+  $List::Bisect::VERSION = '0.001_2';
 }
 use strict;
 use warnings;
 use Exporter qw{import};
 our @EXPORT = qw{bisect};
+our @EXPORT_OK = qw{trisect};
 
 # ABSTRACT: split a list in to two parts by way of a grep like block
 
@@ -38,5 +39,48 @@ sub bisect (&@) {
 
    return (\@true,\@false);
 }
+
+=head2 trisect
+
+  my ($a,$b,$c) = trisect {$_ <=> 5} 1..10;
+  # $a == [1..4]
+  # $b == [5]
+  # $c == [6..10]
+
+Useage is like grep where you pass it a block and a list, returns a list of two arrayrefs. The intent 
+here though is to break that list in to three parts using cmp-style returns (-1/0/1). All values that
+cause your codeblock to return -1 are in the first arrayref, 0 in the next, and everything else falls
+in the last arrayref.
+
+B<!!NOTE!!> Currently the last arrayref is a catch all for anything that does not exactly match 1/0. 
+This if you write your own cusom block that returns any value other then -1/0/1 then it will end up 
+here. This was done as I want to keep the expectation that all items from the input list will be 
+found some where in the output.
+
+=cut
+
+sub trisect (&@) {
+   my $cmp = shift;
+
+   my @lt;
+   my @eq;
+   my @gt;
+   foreach $_ (@_) {
+      if (&$cmp == 1) {
+         push @gt, $_;
+      }
+      elsif (&$cmp == 0) {
+         push @eq, $_;
+      }
+      else {
+         push @lt, $_;
+      }
+   }
+
+   return (\@lt,\@eq,\@gt);
+}
+
+
+
 
 1;
